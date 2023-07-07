@@ -10,7 +10,7 @@ sent_tokens2 = []
 for sentence in sent_tokens:
     sentence = sentence.translate(str.maketrans('','',string.punctuation))
     sent_tokens2.append(sentence)
-# sent_tokens = []
+
 from nltk.stem import PorterStemmer
 stemmer = PorterStemmer()
 from nltk.corpus import stopwords
@@ -27,9 +27,7 @@ for j in range(len(sent_tokens2)) :
         else:
             words[i] = '' 
     sent_tokens2[j] = ' '.join(words)
-# print(sent_tokens[0])
-# print(sent_tokens2[0])
-# print(sent_tokens2)
+
 import random
 import numpy as np
 def greet(user_reponse):
@@ -41,7 +39,7 @@ def greet(user_reponse):
         if word.lower() in greet_inputs:
             return(random.choice(greet_response))
     
-# print(greet("hello"))
+
 def quit(user_response):
     quit_inputs = ["quit","bye"]
     quit_response = ["Okay,Have a Nice Day!"]
@@ -74,11 +72,7 @@ def response(user_response):
         bot_response = bot_response + sent_tokens[idx]
         sent_tokens.remove(user_response.lower())
         return bot_response
-# print(response("what is universe"))
-
-    # print(vals)
-
-# response("Hey I am Suyash!")
+    
 flag = True
 while flag==True:
     
