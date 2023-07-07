@@ -1,0 +1,70 @@
+AI-CHAT-BOT
+
+Data:
+For this chatbot I am using data from https://en.wikipedia.org/wiki/Chatbot
+data from the website is copied in a data.txt file
+
+Preprocessing:
+
+Preprocessing involves stemming,lamitizing,removing punctuations and stopwards
+
+before doing the above actions, we converted the data to lowercase for simplicity
+and tokenized the data into sentences to reomve punctuations
+then with the help of string module , removed the punctuations
+
+for other functions i.e. stemming lammatization and stopwords removel,converted the tokenized sentence into tokenized words
+then on every word I did stemming ,lemmatizing  and stopword removel then combined all the wprds of a sentence and again stored into the tokenized sentence list
+
+for tokenizing ,I used the word and sentence tokenizer of nltk
+for stemming I used PorterStemmer
+for lemmatization I used WordNetLemmatizer
+for stopwords I used list of stopwords from the nltk corpus
+
+
+Model:
+
+Now comes the function part.
+we need to prepare 4 functions:
+1. for greeting
+2. for quitting
+3. for in between conversation
+4.to conduct the whole conversation
+
+let's see one by one,
+1. for greeting
+
+first the confimed the message is about greeting or not.
+greet messages are usally hi, hello
+
+So after confirming greet message returned a greet message from bot
+
+2. for quitting 
+
+similar to greeting ,difference is here we have 2 cases 
+        1.when user say thank
+        2.when user say bye
+we just need to add two different messages
+
+3.For overall chatting
+we first need to lowercase the input and add it to the sentence_tokens
+then vectorization and similarity will be calculated. 
+
+
+we need to find appropriate sentence similar to what is asked So
+we will use vectorization and cosine similarity to find the similarity between sentences
+
+we will sort the similarity values and select the last second values
+because the last value will be similarity of the input w.r.t.input
+so we will select last second value
+
+If we don't get anything similar to data we will say "sorry"
+else we will return the most simlar sentence
+
+4.for conversational flow
+
+we will use a flag to keep the while loop running
+after quit is called the flag will turn false and loop will stop 
+else it will keep on calling greet and response functions based on the input received
+
+That's It !
+
